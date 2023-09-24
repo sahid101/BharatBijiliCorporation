@@ -1,0 +1,38 @@
+/* CSS for the User Response section */
+div {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 18px;
+    margin: 5px 0;
+  }
+  
+  /* Additional styles for specific elements (customize as needed) */
+  p#id {
+    color: #007bff; /* Blue color for ID */
+    font-weight: bold;
+  }
+  
+  p#name {
+    color: #333; /* Dark gray color for Name */
+  }
+  
+  p#phoneNumber {
+    color: #28a745; /* Green color for Phone Number */
+  }
+  
+  p#emailId {
+    color: #dc3545; /* Red color for Email */
+  }
+  

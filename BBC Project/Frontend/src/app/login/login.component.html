@@ -1,0 +1,16 @@
+
+<div class="login-container">
+    <h2>Login</h2>
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+        <div class="form-group">
+            <label for="customerId">CustomerId</label>
+            <input type="text" id="customerId" name="customerId" [(ngModel)]="customerId" required>
+        </div>
+        <button (click)="generateOtp()">Generate Otp</button>
+        <div class="form-group" *ngIf="!otpDisabled">
+            <label for="otp">OTP</label>
+            <input type="text" id="otp" name="otp" [(ngModel)]="otp" required [disabled]="otpDisabled">
+        </div>
+        <button type="submit" [disabled]="!loginForm.valid" *ngIf="!otpDisabled">Login</button>
+    </form>
+</div>

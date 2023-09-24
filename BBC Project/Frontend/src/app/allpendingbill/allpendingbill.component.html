@@ -1,0 +1,29 @@
+<app-header></app-header>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Transaction ID</th>
+        <th>Unit Consumption</th>
+        <th>Total Amount</th>
+        <th>Rate</th>
+        <th>Reference Number</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bill of transactionDetails">
+        <td>{{ bill.tId }}</td>
+        <td>{{ bill.unitConsumption }}</td>
+        <td>{{ bill.totalAmount }}</td>
+        <td>{{ bill.rate }}</td>
+        <td>{{ bill.referenceNumber }}</td>
+        <td>{{ bill.startDate }}</td>
+        <td>{{ bill.endDate }}</td>
+        <td><button (click)="gotopaymentportal(bill.tId)">Pay</button></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  

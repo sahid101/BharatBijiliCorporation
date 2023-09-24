@@ -1,0 +1,69 @@
+<app-header></app-header>
+<div class="transaction-details">
+    <h2>Transaction Details</h2>
+
+    <div class="payment-method-selector">
+      <label for="paymentMethod">Payment Method:</label>
+      <select id="paymentMethod" name="paymentMethod" [(ngModel)]="selectedPaymentMethod" (change)="changePaymentMethod(selectedPaymentMethod)">
+        <option value="credit">Credit Card</option>
+        <option value="debit">Debit Card</option>
+        <option value="wallet">Wallet</option>
+      </select>
+    </div>
+
+    <table class="table">
+      <tr>
+        <td><strong>Transaction ID:</strong></td>
+        <td>{{ transaction.tId }}</td>
+      </tr>
+      <tr>
+        <td><strong>Customer Name:</strong></td>
+        <td>{{ transaction.customer.name }}</td>
+      </tr>
+      <tr>
+        <td><strong>Unit Consumption:</strong></td>
+        <td>{{ transaction.unitConsumption }}</td>
+      </tr>
+      <tr>
+        <td><strong>Total Amount:</strong></td>
+        <td>{{ transaction.totalAmount }}</td>
+      </tr>
+      <tr>
+        <td><strong>Rate:</strong></td>
+        <td>{{ transaction.rate }}</td>
+      </tr>
+      <tr>
+        <td><strong>Reference Number:</strong></td>
+        <td>{{ transaction.referenceNumber }}</td>
+      </tr>
+      <tr>
+        <td><strong>Start Date:</strong></td>
+        <td>{{ transaction.startDate }}</td>
+      </tr>
+      <tr>
+        <td><strong>End Date:</strong></td>
+        <td>{{ transaction.endDate }}</td>
+      </tr>
+      <tr *ngIf="selectedPaymentMethod === 'credit'">
+        <td><strong>Credit Card Selected</strong></td>
+        <td>{{ transaction.paymentMethods.creditCardDetails }}</td>
+      </tr>
+      <tr *ngIf="selectedPaymentMethod === 'debit'">
+        <td><strong>Debit Card Selected</strong></td>
+        <td>{{ transaction.paymentMethods.debitCardDetails }}</td>
+      </tr>
+      <tr *ngIf="selectedPaymentMethod === 'wallet'">
+        <td><strong>Wallet Selected</strong></td>
+        <td>{{ transaction.paymentMethods.walletDetails }}</td>
+      </tr>
+    </table>
+
+    <div class="pay-button-container">
+      <button (click)="payTransaction()" *ngIf="selectedPaymentMethod">PAY</button>
+    </div>
+  </div>
+
+  <div *ngIf="paymentsuccess">
+    Successfully Bill Paid 
+  </div>
+  
