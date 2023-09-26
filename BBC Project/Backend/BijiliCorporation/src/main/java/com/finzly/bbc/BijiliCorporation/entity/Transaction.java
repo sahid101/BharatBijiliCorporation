@@ -23,9 +23,6 @@ public class Transaction {
 	private Date endDate;
 	
 	@OneToOne
-	private PaymentMethods paymentMethods;
-	
-	@OneToOne
 	private Customer customer;
 	
 	public Date getStartDate() {
@@ -121,15 +118,6 @@ public class Transaction {
 	public void setReferenceNumber(String referenceNumber) {
 		this.referenceNumber = referenceNumber;
 	}
-
-	public PaymentMethods getPaymentMethods() {
-		return paymentMethods;
-	}
-
-	public void setPaymentModes(PaymentMethods paymentMethods) {
-		this.paymentMethods = paymentMethods;
-	}
-
 
 	
 }

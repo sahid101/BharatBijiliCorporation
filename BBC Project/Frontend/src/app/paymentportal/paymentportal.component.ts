@@ -15,7 +15,6 @@ export class PaymentportalComponent implements OnInit {
   result:any;
   paymentId!: number;
   selectedPaymentMethod!: string;
-  
 
   constructor(private customerHttp: CustomerServiceService,private route: Router) { }
 
@@ -25,26 +24,6 @@ export class PaymentportalComponent implements OnInit {
     this.getBill(this.transactionId);
   }
 
-  changePaymentMethod(selectedPaymentMethod:string) {
-    console.log(selectedPaymentMethod);
-    if(selectedPaymentMethod === "debit"){
-      this.paymentId = 1;
-    }
-    if(selectedPaymentMethod === "credit"){
-      this.paymentId = 2;
-    }
-    if(selectedPaymentMethod === "wallet"){
-      this.paymentId = 3;
-    }
-    this.customerHttp.setPaymentMode(this.customerid,this.transactionId,this.paymentId).subscribe(
-      (response)=>{
-        this.result = response;
-        console.log(this.result);
-      },(error) => {
-        console.error("Error setting payment mode:", error);
-      }
-    );
-  }
   getBill(transactionId:number){
     this.customerHttp.getBillOfCustomerWithTid(this.transactionId).subscribe(
       (response)=>{
@@ -56,12 +35,7 @@ export class PaymentportalComponent implements OnInit {
     )
   }
   
-  payTransaction(){
-    this.customerHttp.paymentSuccessful(this.customerid,this.transactionId).subscribe(
-      (paymentStatus)=>{
-        console.log("payment Status--->  ", JSON.stringify(paymentStatus));
-        this.paymentsuccess=true;
-      }
-    )
+  gotoSuccessfulPay(){
+    this.route.navigate(['/successfully-paid']);
   }
 }

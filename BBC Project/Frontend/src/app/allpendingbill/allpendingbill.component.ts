@@ -12,7 +12,8 @@ export class AllpendingbillComponent implements OnInit {
    
   transactionDetails!: Transaction[];
   custid = sessionStorage.getItem('custid');
-  constructor(private loginHttp: CustomerServiceService, private router: Router) { }
+
+  constructor(private Http: CustomerServiceService, private router: Router) { }
 
   ngOnInit(){
     this.getAllPendingBills();   
@@ -20,16 +21,14 @@ export class AllpendingbillComponent implements OnInit {
   }
   getAllPendingBills() {
 
-    this.loginHttp.getAllPendingBillsOfCustomer(this.custid).subscribe(
+    this.Http.getAllPendingBillsOfCustomer(this.custid).subscribe(
       (response) => {
         this.transactionDetails = response;
       }
     );
   }
-  gotopaymentportal(transactionid: number){
-    const tIdToUse = transactionid;    
-    sessionStorage.setItem('tIdToUse', tIdToUse.toString());
+  gotopaymentportal(transactionid: number) {
+    sessionStorage.setItem('transactionId', transactionid.toString());
     this.router.navigate(['/paymentportal']);
   }
-
 }

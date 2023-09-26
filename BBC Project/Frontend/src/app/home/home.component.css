@@ -1,4 +1,4 @@
-/* CSS for home page */
+
 .home-container {
   text-align: center;
   margin-top: 100px;
@@ -17,22 +17,22 @@
   font-size: 20px;
   text-align: center;
   text-decoration: none;
-  background-color: #007bff; /* Blue background color */
-  color: #fff; /* White text color */
+  background-color: #007bff; 
+  color: #fff; 
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .big-button:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #0056b3; 
 }
 
-/* Styles for individual buttons */
+
 .current-bill {
-  background-color: #28a745; /* Green background color for Current Bill */
+  background-color: #28a745;
 }
 
 .pending-bills {
-  background-color: #dc3545; /* Red background color for Pending Bills */
+  background-color: #dc3545; 
 }

@@ -1,10 +1,10 @@
 <app-header></app-header>
 <div class="transaction-details">
-    <h2>Transaction Details</h2>
+    <h2>Invoice: </h2>
 
     <div class="payment-method-selector">
       <label for="paymentMethod">Payment Method:</label>
-      <select id="paymentMethod" name="paymentMethod" [(ngModel)]="selectedPaymentMethod" (change)="changePaymentMethod(selectedPaymentMethod)">
+      <select id="paymentMethod" name="paymentMethod" [(ngModel)]="selectedPaymentMethod">
         <option value="credit">Credit Card</option>
         <option value="debit">Debit Card</option>
         <option value="wallet">Wallet</option>
@@ -59,11 +59,7 @@
     </table>
 
     <div class="pay-button-container">
-      <button (click)="payTransaction()" *ngIf="selectedPaymentMethod">PAY</button>
+      <button (click)="gotoSuccessfulPay()" [disabled]="!selectedPaymentMethod">PAY</button>
     </div>
-  </div>
-
-  <div *ngIf="paymentsuccess">
-    Successfully Bill Paid 
   </div>
   

@@ -1,4 +1,4 @@
-/* CSS for the User Response section */
+
 div {
     background-color: #f7f7f7;
     border: 1px solid #ddd;
@@ -18,21 +18,21 @@ div {
     margin: 5px 0;
   }
   
-  /* Additional styles for specific elements (customize as needed) */
+
   p#id {
-    color: #007bff; /* Blue color for ID */
+    color: #007bff; 
     font-weight: bold;
   }
   
   p#name {
-    color: #333; /* Dark gray color for Name */
+    color: #333; 
   }
   
   p#phoneNumber {
-    color: #28a745; /* Green color for Phone Number */
+    color: #28a745; 
   }
   
   p#emailId {
-    color: #dc3545; /* Red color for Email */
+    color: #dc3545;
   }
   

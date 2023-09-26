@@ -17,5 +17,8 @@ export class HomeComponent implements OnInit {
   navigateToPendingBill(){
     this.router.navigate(['/pendingbill'])
   }
+  navigateToPendingOldTransaction(){
+    this.router.navigate(['/oldtransaction'])
+  }
 
 }

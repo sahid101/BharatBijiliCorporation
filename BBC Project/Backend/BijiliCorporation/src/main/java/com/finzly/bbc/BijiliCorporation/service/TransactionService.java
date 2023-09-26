@@ -38,16 +38,11 @@ public class TransactionService {
 		return null;
 	}
 
-	public Transaction Payment(long id, long tid) {
-		List<Transaction> list = transactionDao.getTransactionByTid(tid);
-		for (Transaction transaction : list) {
-			Customer cId = transaction.getCustomer();
-			if (cId.getCid() == id) {
-				transaction.setStatus("success");
-				return transaction;
-			}
-		}
-		return null;
+	public String payment(long id, long tid) {
+		Transaction taTransaction = transactionDao.getTransactionByTid(tid);
+		taTransaction.setStatus("Success");
+		transactionDao.updateTransaction(taTransaction);
+		return "ok";
 	}
 
 	public List<Transaction> successfulPreviousPayment(long id) {
@@ -55,7 +50,7 @@ public class TransactionService {
 		List<Transaction> al = new ArrayList<>();
 		for (Transaction transaction : list) {
 			Customer customer = transaction.getCustomer();
-			if((customer.getCid()==id) && (transaction.getStatus().equals("success"))) {
+			if((customer.getCid()==id) && (transaction.getStatus().equals("Success"))) {
 				al.add(transaction);
 			}
 		}

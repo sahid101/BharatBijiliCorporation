@@ -1,0 +1,28 @@
+<app-header></app-header>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Transaction ID</th>
+        <th>Unit Consumption</th>
+        <th>Total Amount</th>
+        <th>Rate</th>
+        <th>Reference Number</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transaction of oldtransactionDetails">
+        <td>{{ transaction.tId }}</td>
+        <td>{{ transaction.unitConsumption }}</td>
+        <td>{{ transaction.totalAmount }}</td>
+        <td>{{ transaction.rate }}</td>
+        <td>{{ transaction.referenceNumber }}</td>
+        <td>{{ transaction.startDate }}</td>
+        <td>{{ transaction.endDate }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  

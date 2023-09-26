@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -44,16 +46,11 @@ public class CustomerController {
 		return transactionService.getBillOfCustomerWithTid(tid);
 		
 	}
-	//setting payment methods/mode
-	@GetMapping("payment/{id}/{tid}/{pid}")
-	public String paymentMode(@PathVariable long id,@PathVariable long tid, @PathVariable long pid) {
-		return customerService.paymentMode(id, tid, pid);
-	}
 	
 	//payment done with tId, id    
-	@GetMapping("payment-successful/{id}/{tid}")
-	public Transaction Payment(@PathVariable long id,@PathVariable long tid) {
-		return transactionService.Payment(id, tid);
+	@PostMapping("payment-successful/{id}/{tid}")
+	public String payment(@PathVariable long id,@PathVariable long tid) {
+		return transactionService.payment(id, tid);
 	}
 	
 	//previous successful payments

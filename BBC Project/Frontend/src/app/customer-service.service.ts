@@ -20,16 +20,16 @@ export class CustomerServiceService {
     return this.httpClient.get(`${this.baseURL}/get-pending-bills-of-customer/${cid}`);
   }
 
+  getAllPreviousBills(cid: any){
+    return this.httpClient.get(`${this.baseURL}/successful-previous-payment/${cid}`);
+  }
+
   getBillOfCustomerWithTid(tId:any):Observable<any>{
     return this.httpClient.get(`${this.baseURL}/get-bill-of-a-cust/${tId}`);
   }
+  
   paymentSuccessful(customerId:any,transactionId: any):Observable<any>{
-    return this.httpClient.get(`${this.baseURL}/payment-successful/${customerId}/${transactionId}`);
+    return this.httpClient.post(`${this.baseURL}/payment-successful/${customerId}/${transactionId}`,null);
   }
-
-  setPaymentMode(customerId:any,transactionId:any,paymentId:any):Observable<any>{
-    return this.httpClient.get(`${this.baseURL}/payment/${customerId}/${transactionId}/${paymentId}`);
-  }
-
 
 }

@@ -11,6 +11,8 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { AllpendingbillComponent } from './allpendingbill/allpendingbill.component';
 import { PaymentportalComponent } from './paymentportal/paymentportal.component';
+import { OldtransactionComponent } from './oldtransaction/oldtransaction.component';
+import { SuccessfullyPaidComponent } from './successfully-paid/successfully-paid.component';
 
 
 @NgModule({
@@ -22,6 +24,8 @@ import { PaymentportalComponent } from './paymentportal/paymentportal.component'
     HeaderComponent,
     AllpendingbillComponent,
     PaymentportalComponent,
+    OldtransactionComponent,
+    SuccessfullyPaidComponent,
   ],
   imports: [
     BrowserModule,

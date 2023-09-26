@@ -23,11 +23,10 @@ public class TransactionDao {
 		return criteria.list();
 	}
 	
-	public List<Transaction> getTransactionByTid(long tid) {
+	public Transaction getTransactionByTid(long tid) {
 		Session session = factory.openSession();
-		Criteria criteria = session.createCriteria(Transaction.class);
-		criteria.add(Restrictions.eq("tId", tid));
-		return criteria.list();
+		Transaction transaction = session.get(Transaction.class, tid);
+		return transaction;
 	}
 
 	public String getAllTransactionUpdate(Transaction book) {
@@ -43,6 +42,14 @@ public class TransactionDao {
 		Criteria criteria = session.createCriteria(Transaction.class);
 		criteria.addOrder(Order.desc("endDate"));
 		return criteria.list();
+	}
+
+	public String updateTransaction(Transaction taTransaction) {
+		Session session = factory.openSession();
+		session.saveOrUpdate(taTransaction);
+		session.beginTransaction().commit();
+		return "updated";
+		
 	}
 	
 }
